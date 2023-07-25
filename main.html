@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pagePiling.js/1.5.6/jquery.pagepiling.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- header starts here -->
+    <header class="header vlt-navbar vlt-navbar--sticky">
+		<div class="container">
+			<!--Logo--><a class="vlt-navbar-logo" href="main.html#Home"><img src="./assets/logo/logo.png" alt="Dimitris Amanatidis"></a>
+				<nav class="vlt-default-menu__navigation">
+					<!--Navigation-->
+					<ul class="sf-menu">
+						<li data-menuanchor="Home"><a href="#Home"  >Home</a>
+						</li>
+						<li data-menuanchor="About"><a href="#About">About</a>
+						</li>
+						<li data-menuanchor="Projects"><a href="#Projects">Projects</a>
+						</li>
+						<li data-menuanchor="Testimonials"><a href="#Testimonials">Testimonials</a>
+						</li>
+						<li data-menuanchor="Contact"><a href="#Contact">Contact</a> 
+						</li>
+					</ul>
+				</nav>
+
+				<!--Contacts-->
+				<div class="vlt-navbar-contacts"><a href="mailto:tsurudetaw@gmail.com">tsurudetaw@gmail.com</a></div>
+				<!--Menu Burger--><a class="vlt-menu-burger" href="#"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="round">
+						<line x1="3" y1="12" x2="21" y2="12" />
+						<line x1="3" y1="6" x2="21" y2="6" />
+						<line x1="3" y1="18" x2="21" y2="18" /></svg></a>							
+		</div>
+	</header>
+    <!-- header ends here -->
+
+<!-- pagepiling starts here -->
+<div id="pagepiling">
+	<div class="section" id="firstPage">
+	  <img src="./assets/pexels-sebastiaan-stam-1480688.jpg" alt="">
+	</div>
+  
+	<div class="section" id="twoPage">
+	  <img src="./assets/pexels-sebastiaan-stam-1304642.jpg" alt="">
+	</div>
+  
+	<div class="section" id="threePage">
+	  <img src="./assets/pexels-stephan-müller-1473215.jpg" alt="">
+	</div>
+  
+	<div class="section" id="forthPage">
+	  <img src="./assets/pexels-tnarg-1606386.jpg" alt="">
+	</div>
+  
+	<div class="section" id="fivePage">
+	  <img src="./assets/pexels-sebastiaan-stam-1482476.jpg" alt="">
+	</div>
+  </div>
+  <!-- pagepiling ends here -->
+
+
+	<!-- Contact starts here -->
+		<section id="contact" class="contact" data-anchor="Contact">
+			<div class="contact-container">
+				<div class="content-fit">
+					<div class="network">
+						<h3>Contact</h3>
+						<p> For professional inquiries <br> or casual chats, reach me through <br> the contacts below:</p>
+						<p><a class="tel" href="mailto:tsurudetaw">tsurudetaw@gmail.com</a></p>
+						<p><a class="tel" href="tg://resolve?domain=tsurudetaw">Telegram: @tsurudetaw</a></p>
+						<p><a class="tel" href="skype:tsurudetaw?chat">Skype: tsurudetaw</a></p>
+					</div>
+
+					<div class="message">
+						<h4>Let's grab a coffee and <span> chat with me.</span></h4>
+						<form id="contact-form" action="submit_form.php" method="POST">
+							<div class="form-group">
+								<input type="text" id="name" name="name" required placeholder="Your Name">
+							</div>
+							<div class="form-group">
+								<input type="email" id="email" name="email" required placeholder="Your Email">
+							</div>
+							<div class="form-group">
+								<textarea id="message" name="message" required placeholder="Message"></textarea>
+							</div>
+							<button type="submit">Contact Me</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+	
+	<!-- Contact ends here -->
+
+	<!-- social icons -->
+	<div class="social-container">
+		<a class="social-icon" href="https://twitter.com"><ion-icon name="logo-twitter"></ion-icon></a>
+		<a class="social-icon" href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+		<a class="social-icon" href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+		<a class="social-icon" href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+	</div>
+	<!-- social icons ends here -->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pagePiling.js/1.5.6/jquery.pagepiling.min.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="./js/script.js"></script>
+
+</body>
+</html>
