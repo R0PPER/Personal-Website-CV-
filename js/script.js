@@ -1,9 +1,17 @@
-$(document).ready(function () {
-    // Cache jQuery selectors
-    var sections = $('.section'); // Select all elements with the class 'section'
-    var contactContainer = $('.contact-container'); // Select the element with the class 'contact-container'
-    var menuLinks = document.querySelectorAll('.sf-menu li a'); // Select all 'a' elements inside '.sf-menu li'
 
+
+
+$(document).ready(function () {
+    const container = $('.container');
+    const sections = $('.section');
+    const homeContainer = $('.home');
+    const aboutContainer = $('.about');
+    const projectsContainer = $('.projects');
+    const testimonialsContainer = $('.testimonials');
+    const contactContainer = $('.contact');
+    const menuLinks = document.querySelectorAll('.sf-menu li a');
+
+   
     // Cache frequently used elements
     var image; // Variable to store the current image
 
@@ -15,7 +23,7 @@ $(document).ready(function () {
             this.removeAttribute('placeholder');
         }
     });
-
+    
     // Function to zoom the image
     function zoomImage(index) {
         // Find the image within the current section
@@ -30,11 +38,11 @@ $(document).ready(function () {
     }
 
     // Event delegation for focus and blur events on contact fields
-  contactContainer.on('focus', 'input', function () {
-    if (this.value === '') {
-      this.placeholder = '';
-    }
-  });
+    contactContainer.on('focus', 'input', function () {
+      if (this.value === '') {
+        this.placeholder = '';
+      }
+    });
 
   contactContainer.on('blur', 'input', function () {
     if (this.value === '') {
@@ -67,7 +75,7 @@ $(document).ready(function () {
             'position': 'right',
             'tooltips': []
         },
-        normalScrollElements: null,
+        normalScrollElements: '*',
         normalScrollElementTouchThreshold: 5,
         touchSensitivity: 5,
         keyboardScrolling: true,
@@ -75,8 +83,32 @@ $(document).ready(function () {
         animateAnchor: false,
 
         // Event callbacks
-        afterRender: function() {},
+        afterRender: function() {
+          var isScrolling = false;
+
+          $(window).on('wheel', function(event) {
+            if (isScrolling) return;
+
+            isScrolling = true;
+
+            var deltaY = event.originalEvent.deltaY;
+
+            if (deltaY < 0) {
+              // Mousewheel up event
+              $.fn.pagepiling.moveSectionUp();
+            } else if (deltaY > 0) {
+              // Mousewheel down event
+              $.fn.pagepiling.moveSectionDown();
+            }
+
+            setTimeout(function() {
+              isScrolling = false;
+            }, 1000); // Set the timer to 1 second (1000 milliseconds)
+          });
+        },
         onLeave: function (index, nextIndex, direction) {
+            container.css('z-index', '1'); //Reset the containers index to 1 on leave
+
             // Find the image within the current section
             var image = sections.eq(index - 1).find('img');
 
@@ -89,13 +121,46 @@ $(document).ready(function () {
             }
         },
         afterLoad: function(anchorLink, index){
+            // Check if the current index is 1 (Home section)
+            if (index === 1) {
+              homeContainer.css('display', 'flex');
+              container.css('z-index', '6');
+            } else {
+              homeContainer.css('display', 'none');
+            }
+
+             // Check if the current index is 5 (about section)
+            if (index === 2) {
+              aboutContainer.css('display', 'flex'); // Set the display property of the about element to 'flex'
+              container.css('z-index', '6');
+            } else {
+              aboutContainer.css('display', 'none'); // Fade out the about container
+            } 
+
+             // Check if the current index is 5 (projects section)
+            if (index === 3) {
+              projectsContainer.css('display', 'flex'); // Set the display property of the projects element to 'flex'
+              container.css('z-index', '6');
+            } else {
+              projectsContainer.css('display', 'none'); // Fade out the projects container
+            } 
+
+             // Check if the current index is 5 (testimonials section)
+            if (index === 4) {
+              testimonialsContainer.css('display', 'flex'); // Set the display property of the testimonials element to 'flex'
+              container.css('z-index', '6');
+            } else {
+              testimonialsContainer.css('display', 'none'); // Fade out the testimonials container
+            } 
+            
+
             // Check if the current index is 5 (Contact section)
             if (index === 5) {
-                contactContainer.fadeIn(); // Fade in the contact container
-                document.querySelector('.contact').style.display = 'flex'; // Set the display property of the contact element to 'flex'
+                contactContainer.css('display', 'flex'); // Set the display property of the contact element to 'flex'
+                container.css('z-index', '6');
             } else {
-                contactContainer.fadeOut(); // Fade out the contact container
-            }  
+              contactContainer.css('display', 'none');
+            }
         
             zoomImage(index); // Call the zoomImage function with the current index
         
@@ -105,27 +170,24 @@ $(document).ready(function () {
             // Add the 'active' class to the section with the current index
             var activePage = sections.eq(index - 1).addClass('active');
         
-            // Find all 'a' elements inside '.sf-menu li'
-            var menuLinks = document.querySelectorAll('.sf-menu li a');
-        
             // Reset the color of all 'a' elements inside '.sf-menu li' to the default color
             menuLinks.forEach(function(link) {
-                link.classList.remove('active-menu'); // Remove the "active-menu" class
-                link.style.color = '#f5f5f5'; // Set the color to the default color
-        
-                link.addEventListener('mouseenter', () => {
-                    if (!link.classList.contains('active-menu')) {
-                        // Change the color on hover only if it's not the active page
-                        link.style.color = '#ff8a26'; // Set the hover color
-                    }
-                });
-        
-                link.addEventListener('mouseleave', () => {
-                    if (!link.classList.contains('active-menu')) {
-                        // Revert back to default color when not hovered and not active
-                        link.style.color = '#f5f5f5'; // Set the default color
-                    }
-                });   
+              link.classList.remove('active-menu'); // Remove the "active-menu" class
+              link.style.color = '#f5f5f5'; // Set the color to the default color
+      
+              link.addEventListener('mouseenter', () => {
+                  if (!link.classList.contains('active-menu')) {
+                      // Change the color on hover only if it's not the active page
+                      link.style.color = '#ff8a26'; // Set the hover color
+                  }
+              });
+      
+              link.addEventListener('mouseleave', () => {
+                  if (!link.classList.contains('active-menu')) {
+                      // Revert back to default color when not hovered and not active
+                      link.style.color = '#f5f5f5'; // Set the default color
+                  }
+              });   
             });
         
             // Add the "active-menu" class to the menu item corresponding to the active section
@@ -133,7 +195,7 @@ $(document).ready(function () {
                 menuLinks[index - 1].classList.add('active-menu'); // Add the "active-menu" class
                 menuLinks[index - 1].style.color = '#ff8a26'; // Set the desired color          
             }
-        }
+        },
     });
 
 // Refactored code for handling contact fields
@@ -158,5 +220,6 @@ $(document).ready(function () {
       }
     });
   });
+
 });
                     

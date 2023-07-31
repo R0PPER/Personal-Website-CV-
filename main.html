@@ -7,13 +7,41 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pagePiling.js/1.5.6/jquery.pagepiling.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="style.css">
+	<link href="https://fonts.cdnfonts.com/css/gilroy-bold" rel="stylesheet">
 </head>
 
 <body>
 
+<div class="border"></div>
+
+	
+<!-- pagepiling starts here -->
+<div id="pagepiling">
+	<div class="section pp-scrollable" id="firstPage">
+	  <img src="./assets/pexels-sebastiaan-stam-1480688.jpg" alt="">
+	</div>
+  
+	<div class="section pp-scrollable" id="twoPage">
+	  <img src="./assets/pexels-sebastiaan-stam-1304642.jpg" alt="">
+	</div>
+  
+	<div class="section pp-scrollable" id="threePage">
+	  <img src="./assets/pexels-stephan-müller-1473215.jpg" alt="">
+	</div>
+  
+	<div class="section pp-scrollable" id="forthPage">
+	  <img src="./assets/pexels-tnarg-1606386.jpg" alt="">
+	</div>
+  
+	<div class="section pp-scrollable" id="fivePage">
+	  <img src="./assets/pexels-sebastiaan-stam-1482476.jpg" alt="">
+	</div>
+  </div>
+  <!-- pagepiling ends here -->
+
     <!-- header starts here -->
     <header class="header vlt-navbar vlt-navbar--sticky">
-		<div class="container">
+		<div class="header-container">
 			<!--Logo--><a class="vlt-navbar-logo" href="main.html#Home"><img src="./assets/logo/logo.png" alt="Dimitris Amanatidis"></a>
 				<nav class="vlt-default-menu__navigation">
 					<!--Navigation-->
@@ -39,36 +67,67 @@
 						<line x1="3" y1="18" x2="21" y2="18" /></svg></a>							
 		</div>
 	</header>
-    <!-- header ends here -->
+	<!-- header ends here -->
 
-<!-- pagepiling starts here -->
-<div id="pagepiling">
-	<div class="section" id="firstPage">
-	  <img src="./assets/pexels-sebastiaan-stam-1480688.jpg" alt="">
+	<!-- home starts here -->
+		<div class="container pp-scrollable">
+			<section class="home" id="home"	 data-anchor="Home">
+				<h1>Dimitris Amanatidis</h1>
+				<div class="content-fit">
+
+					<div class="content"> 
+
+					</div>
+
+					<div class="home-photo">
+
+					</div>
+				</div>
+			</section>
+		</div>
+	<!-- home ends here -->
+
+	<!-- about section starts here -->
+		<div class="container pp-scrollable">
+			<section id="about" class="about" data-anchor="About">
+
+
+
+
+
+			</section>
+		</div>
+	<!-- about section ends here -->
+
+	<!-- about section starts here -->
+	<div class="container pp-scrollable">
+		<section id="projects" class="projects" data-anchor="Projects">
+
+
+
+
+
+		</section>
 	</div>
-  
-	<div class="section" id="twoPage">
-	  <img src="./assets/pexels-sebastiaan-stam-1304642.jpg" alt="">
+	<!-- about section ends here -->
+
+	<!-- about section starts here -->
+	<div class="container pp-scrollable">
+		<section id="testimonials" class="testimonials" data-anchor="Testimonials">
+
+
+
+
+
+		</section>
 	</div>
-  
-	<div class="section" id="threePage">
-	  <img src="./assets/pexels-stephan-müller-1473215.jpg" alt="">
-	</div>
-  
-	<div class="section" id="forthPage">
-	  <img src="./assets/pexels-tnarg-1606386.jpg" alt="">
-	</div>
-  
-	<div class="section" id="fivePage">
-	  <img src="./assets/pexels-sebastiaan-stam-1482476.jpg" alt="">
-	</div>
-  </div>
-  <!-- pagepiling ends here -->
+	<!-- about section ends here -->
+
 
 
 	<!-- Contact starts here -->
+	<div class="container pp-scrollable">
 		<section id="contact" class="contact" data-anchor="Contact">
-			<div class="contact-container">
 				<div class="content-fit">
 					<div class="network">
 						<h3>Contact</h3>
@@ -94,9 +153,8 @@
 						</form>
 					</div>
 				</div>
-			</div>
 		</section>
-	
+	</div>
 	<!-- Contact ends here -->
 
 	<!-- social icons -->

@@ -5,11 +5,11 @@
     list-style:none ;
 }
 
+
 html, body {
     overflow:hidden;
     margin:0;
-    padding:0;
-
+    padding:0;    
     /*Avoid flicker on slides transitions for mobile phones #336 */
     -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
@@ -22,52 +22,39 @@ html, body {
     color: #b9adad;
 }
 
+
+.border{
+    content: "";
+    position: fixed;
+    height: 49vh;
+    z-index: 6; /* Set a high z-index to ensure it's always on top */
+    border-left: rgba(255, 255, 255, 0.315) solid 1px;
+    border-right: rgba(255, 255, 255, 0.315) solid 1px;
+    width: 90%;
+    left: 50%; /* Set the left position to 50% */
+    transform: translateX(-50%); /* Center the div horizontally */
+    top: 23%; 
+  }
+
+
+
 .section {
     width: 100%;
     height: 100%;
     display: grid;
     place-items: center;
     text-align: center;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s;
+    overflow: hidden;
 }
 
 
 .sf-menu li a:target {
     color: #ff8a26;
 }
-
-
-/* #pagepiling #firstPage {
-    background: url(./assets/pexels-sebastiaan-stam-1480688.jpg);
-    background-size: cover;
-}
-
-#pagepiling #twoPage {
-    background: url(./assets/pexels-sebastiaan-stam-1304642.jpg);
-    background-size: cover;
-}
-
-#pagepiling #threePage {
-    background: url(./assets/pexels-stephan-müller-1473215.jpg);
-    background-size: cover;
-}
-
-#pagepiling #forthPage {
-    background: url(./assets/pexels-tnarg-1606386.jpg);
-    background-size: cover;
-}
-
-#pagepiling #fivePage {
-    background: url(./assets/pexels-sebastiaan-stam-1482476.jpg);
-    background-size: cover; 
-}
- */
-
-.section {
-    width: 100%;
-    height: 100vh; 
-    overflow: hidden;
-  }
-  
 
 #pagepiling img {
     width: 100%;
@@ -105,12 +92,12 @@ html, body {
     display:block;
 }
 
-.container {
+.header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 5.8rem;
-  }
+}
 
 .sf-menu{
     display: inline-flex;
@@ -122,8 +109,6 @@ html, body {
     justify-content: center;
     text-align: center;
 }
-
-
 
 .sf-menu>li>a{
     font-size:15px;
@@ -193,24 +178,54 @@ html, body {
     transform:rotate(180deg);
 }
 
-.contact {
-    height: 480px;
+.home {
     justify-content: center;
-    margin-top: 12.5%;
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: absolute;
+    z-index: 1;
+}
+
+.home h1 {
+    display: flex;
+    color: #f5f5f5;
+    z-index: 1;
+    position: absolute;
+}
+
+.home .content{
+
+}
+
+.home .home-photo {
+    
+}
+
+.container {
+    height: 49vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    z-index: 1;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -45%; /* Half of the width */
+    margin-top: -25vh; 
+    z-index: 1;   
+    overflow: hidden;
+ 
+}
+
+
+.contact {
+    width: 90%;
+    justify-content: center;
+    align-items: center;  
     display: none;
 }
-
-.contact-container {
-    display: flex;
-    justify-content: space-between; /* Add this line */
-    align-items: center; /* Add this line */
-    width: 90%;
-    height: 100%;
-    z-index: 1;
-    /* border: #ff8a26 dotted 3px; */
-    position: relative;
-}
-
 
 .content-fit {
     display: flex;
@@ -233,7 +248,6 @@ html, body {
     font-size: 3.125rem;
     line-height: 1.35;
     margin-bottom: 1rem;
-    margin-top: 1rem;
     color: #fff;
     z-index: 1;
 }
@@ -244,7 +258,6 @@ html, body {
     color: rgba(255,255,255,.6);
     z-index: 1;
     line-height: 1.5rem;
-    margin
 }
 
 .network p:nth-child(2) {
@@ -275,7 +288,7 @@ html, body {
     font-size: 28px;
     color: #f5f5f5;
     display: block;
-    margin-block-start: 1.33em;
+    margin-block-start: 0.3em;
     margin-block-end: 1.33em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
@@ -422,19 +435,13 @@ button:hover{
 }
 
 #pagepiling {
-    z-index: 1;
-    overflow: hidden;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
 }
 
-.section {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.5s;
-}
+
 
 .zoomed {
     transform: scale(1.1);
 }
-
