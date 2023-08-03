@@ -1,17 +1,3 @@
-
-  //   // Callback function for afterLoad event
-  //   function afterLoadCallback(anchorLink, index) {
-  //   // Get the total number of pages
-  //   var totalPages = $('#pagepiling .section').length;
-
-  //   // Calculate the percentage scroll progress based on the current page index
-  //   var scrollProgress = (index - 1) / (totalPages - 1) * 100;
-
-  //   // Set the container's position based on the scroll progress
-  //   $('.container').css('left', scrollProgress + '%');
-  // }
-
-
 $(document).ready(function () {
     const container = $('.container');
     const sections = $('.section');
@@ -21,6 +7,7 @@ $(document).ready(function () {
     const testimonialsContainer = $('.testimonials');
     const contactContainer = $('.contact');
     const menuLinks = document.querySelectorAll('.sf-menu li a');
+
 
     // Cache frequently used elements
     var image; // Variable to store the current image
@@ -38,7 +25,7 @@ $(document).ready(function () {
     function zoomImage(index) {
         // Find the image within the current section
         var currentSection = sections.eq(index - 1); // Get the current section based on the index
-        image = currentSection.find('img');
+        image = currentSection.find('.background-img');
         currentSection.css('transition', 'transform 1.4s'); // Set the transition property for the current section
 
         // Toggle the 'zoomed' class to scale the image
@@ -120,7 +107,8 @@ $(document).ready(function () {
           });
         },
         onLeave: function (index, nextIndex, direction) { 
-            container.css('z-index', '1'); //Reset the containers index to 1 on leave
+
+            // container.css('z-index', '1'); //Reset the containers index to 1 on leave
 
             // Find the image within the current section
             var image = sections.eq(index - 1).find('img');
@@ -134,47 +122,46 @@ $(document).ready(function () {
             }
         },
         afterLoad: function(anchorLink, index){
-
             // afterLoadCallback();
             // Check if the current index is 1 (Home section)
-            if (index === 1) {
-              homeContainer.css('display', 'flex');
-              container.css('z-index', '6');
-            } else {
-              homeContainer.css('display', 'none');
-            }
+            // if (index === 1) {
+            //   homeContainer.css('display', 'flex');
+            //   container.css('z-index', '6');
+            // } else {
+            //   homeContainer.css('display', 'none');
+            // }
 
-             // Check if the current index is 5 (about section)
-            if (index === 2) {
-              aboutContainer.css('display', 'flex'); // Set the display property of the about element to 'flex'
-              container.css('z-index', '6');
-            } else {
-              aboutContainer.css('display', 'none'); // Fade out the about container
-            } 
+            //  // Check if the current index is 5 (about section)
+            // if (index === 2) {
+            //   aboutContainer.css('display', 'flex'); // Set the display property of the about element to 'flex'
+            //   container.css('z-index', '6');
+            // } else {
+            //   aboutContainer.css('display', 'none'); // Fade out the about container
+            // } 
 
-             // Check if the current index is 5 (projects section)
-            if (index === 3) {
-              projectsContainer.css('display', 'flex'); // Set the display property of the projects element to 'flex'
-              container.css('z-index', '6');
-            } else {
-              projectsContainer.css('display', 'none'); // Fade out the projects container
-            } 
+            //  // Check if the current index is 5 (projects section)
+            // if (index === 3) {
+            //   projectsContainer.css('display', 'flex'); // Set the display property of the projects element to 'flex'
+            //   container.css('z-index', '6');
+            // } else {
+            //   projectsContainer.css('display', 'none'); // Fade out the projects container
+            // } 
 
-             // Check if the current index is 5 (testimonials section)
-            if (index === 4) {
-              testimonialsContainer.css('display', 'flex'); // Set the display property of the testimonials element to 'flex'
-              container.css('z-index', '6');
-            } else {
-              testimonialsContainer.css('display', 'none'); // Fade out the testimonials container
-            }           
+            //  // Check if the current index is 5 (testimonials section)
+            // if (index === 4) {
+            //   testimonialsContainer.css('display', 'flex'); // Set the display property of the testimonials element to 'flex'
+            //   container.css('z-index', '6');
+            // } else {
+            //   testimonialsContainer.css('display', 'none'); // Fade out the testimonials container
+            // }           
 
-            // Check if the current index is 5 (Contact section)
-            if (index === 5) {
-                contactContainer.css('display', 'flex'); // Set the display property of the contact element to 'flex'
-                container.css('z-index', '6');
-            } else {
-              contactContainer.css('display', 'none');
-            }
+            // // Check if the current index is 5 (Contact section)
+            // if (index === 5) {
+            //     contactContainer.css('display', 'flex'); // Set the display property of the contact element to 'flex'
+            //     container.css('z-index', '6');
+            // } else {
+            //   contactContainer.css('display', 'none');
+            // }
         
             zoomImage(index); // Call the zoomImage function with the current index
         
