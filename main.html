@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pagePiling.js/1.5.6/jquery.pagepiling.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style.css">
 	<link href="https://fonts.cdnfonts.com/css/gilroy-bold" rel="stylesheet">
 </head>
@@ -69,65 +70,113 @@
 	</header>
 	<!-- header ends here -->
 
-	<!-- home starts here -->
-		<div class="container pp-scrollable">
-			<section class="home" id="home"	 data-anchor="Home">
-				<h1>Dimitris Amanatidis</h1>
+
+	<div class="container" data-section-index="1">
+		<main class="home" id="home" data-anchor="Home">
+			<div class="content-fit">
+				<div class="welcoming">
+					<h1>Hi, I'm Dimitris. <br>
+						A Cyber Security Consultant.
+					</h1>
+					
+					<p>Experienced Cyber Security Consultant dedicated to safeguarding organizations with robust solutions. Expert in assessments, testing, and incident response.</p>
+				</div>
+
+			</div>
+		</main>
+	</div>
+
+	<!-- about tarts here -->
+		<div class="container" >
+			<main class="about" id="about"	 data-anchor="About">
 				<div class="content-fit">
-
-					<div class="content"> 
-
+					<div class="about-photo">
+						<img src="./assets/personal-photos/pexels-sacha-moreau-17734748.jpg" alt="">
 					</div>
 
-					<div class="home-photo">
+					<div class="swiper mySwiper"> 
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<p>
+									“Highly skilled and results-driven Cyber Security Consultant with a solid background in information security and risk management. Possessing a diverse skill set, including vulnerability assessment, penetration testing, and incident response, I am committed to safeguarding organizations against emerging cyber threats. <br><br>
+									Career Objective: To leverage my expertise and technical acumen in cyber security to provide robust solutions that protect sensitive data and mitigate potential breaches. My primary goal is to collaborate with cross-functional teams, identifying security gaps, and implementing proactive strategies to fortify cyber defenses.”
+								</p>
+							</div>
+							<div class="swiper-slide"><p>rerereeeeeeeeeeeeeeeeeeeeere</p></div>
+							<div class="swiper-slide"><p>q jutyeeeeeeeeeeeeeeeertyhtr</p></div>
+							<div class="swiper-slide"><p>bhrytjiuoeyeeeeukvvfvgfef!</p></div>
 
+						</div>						
+						<div class="swiper-button-next"></div>
+						<div class="swiper-button-prev"></div>
+						<div class="swiper-pagination"></div>
+						<div class="autoplay-progress">
+						<svg viewBox="0 0 48 48">
+							<circle cx="24" cy="24" r="20"></circle>
+						</svg>
+						<span></span>
 					</div>
 				</div>
-			</section>
+			</main>
 		</div>
-	<!-- home ends here -->
+	<!-- about ends here -->
 
 	<!-- about section starts here -->
-		<div class="container pp-scrollable">
-			<section id="about" class="about" data-anchor="About">
+		<!-- <div class="container">
+			<main id="about" class="about" data-anchor="About">
+				<div class="content-fit">
+					<div class="summary">
+						<p> 
+							Highly skilled and results-driven Cyber Security Consultant with a solid background in information security and risk management. Possessing a diverse skill set, including vulnerability assessment, penetration testing, and incident response, I am committed to safeguarding organizations against emerging cyber threats.
 
+							Career Objective: To leverage my expertise and technical acumen in cyber security to provide robust solutions that protect sensitive data and mitigate potential breaches. My primary goal is to collaborate with cross-functional teams, identifying security gaps, and implementing proactive strategies to fortify cyber defenses.
+						</p>
+					</div>
 
-
-
-
-			</section>
-		</div>
+					<div class="responsibilities">
+						<h3>Key responsibilities:</h3>
+						<ul>
+							<li>Conduct comprehensive security assessments to identify weaknesses and recommend remediation measures.</li>
+							<li>Develop and implement security policies, procedures, and guidelines to maintain compliance with industry standards.</li>
+							<li>Perform security audits and penetration tests to assess network infrastructure and applications.</li>
+							<li>Respond to and mitigate cyber incidents, minimizing potential damage and ensuring swift recovery.</li>
+							<li>Offer expert advice and training to clients, enhancing their overall security posture.</li>
+						</ul>
+					</div>
+				</div>
+			</main>
+		</div> -->
 	<!-- about section ends here -->
 
 	<!-- about section starts here -->
-	<div class="container pp-scrollable">
-		<section id="projects" class="projects" data-anchor="Projects">
+	<div class="container">
+		<main id="projects" class="projects" data-anchor="Projects">
 
 
 
 
 
-		</section>
+		</main>
 	</div>
 	<!-- about section ends here -->
 
 	<!-- about section starts here -->
-	<div class="container pp-scrollable">
-		<section id="testimonials" class="testimonials" data-anchor="Testimonials">
+	<div class="container">
+		<main id="testimonials" class="testimonials" data-anchor="Testimonials">
 
 
 
 
 
-		</section>
+		</main>
 	</div>
 	<!-- about section ends here -->
 
 
 
 	<!-- Contact starts here -->
-	<div class="container pp-scrollable">
-		<section id="contact" class="contact" data-anchor="Contact">
+	<div class="container">
+		<main id="contact" class="contact" data-anchor="Contact">
 				<div class="content-fit">
 					<div class="network">
 						<h3>Contact</h3>
@@ -153,7 +202,7 @@
 						</form>
 					</div>
 				</div>
-		</section>
+		</main>
 	</div>
 	<!-- Contact ends here -->
 
@@ -171,6 +220,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pagePiling.js/1.5.6/jquery.pagepiling.min.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script src="./js/script.js"></script>
 
 </body>

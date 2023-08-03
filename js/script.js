@@ -1,4 +1,15 @@
 
+  //   // Callback function for afterLoad event
+  //   function afterLoadCallback(anchorLink, index) {
+  //   // Get the total number of pages
+  //   var totalPages = $('#pagepiling .section').length;
+
+  //   // Calculate the percentage scroll progress based on the current page index
+  //   var scrollProgress = (index - 1) / (totalPages - 1) * 100;
+
+  //   // Set the container's position based on the scroll progress
+  //   $('.container').css('left', scrollProgress + '%');
+  // }
 
 
 $(document).ready(function () {
@@ -11,7 +22,6 @@ $(document).ready(function () {
     const contactContainer = $('.contact');
     const menuLinks = document.querySelectorAll('.sf-menu li a');
 
-   
     // Cache frequently used elements
     var image; // Variable to store the current image
 
@@ -28,7 +38,7 @@ $(document).ready(function () {
     function zoomImage(index) {
         // Find the image within the current section
         var currentSection = sections.eq(index - 1); // Get the current section based on the index
-        image = currentSection.find('img'); // Find the 'img' element within the current section
+        image = currentSection.find('img');
         currentSection.css('transition', 'transform 1.4s'); // Set the transition property for the current section
 
         // Toggle the 'zoomed' class to scale the image
@@ -58,6 +68,8 @@ $(document).ready(function () {
 
     // Initialize the pagepiling plugin
     $('#pagepiling').pagepiling({
+
+
         // Configuration options
         menu: null,
         direction: 'vertical',
@@ -65,6 +77,7 @@ $(document).ready(function () {
         sectionsColor: [],
         anchors: ['Home', 'About', 'Projects', 'Testimonials', 'Contact'],
         scrollingSpeed: 700,
+        startingSection: 1, // Set the starting section index to 1 (home page)
         easing: 'swing',
         loopBottom: false,
         loopTop: false,
@@ -106,7 +119,7 @@ $(document).ready(function () {
             }, 1000); // Set the timer to 1 second (1000 milliseconds)
           });
         },
-        onLeave: function (index, nextIndex, direction) {
+        onLeave: function (index, nextIndex, direction) { 
             container.css('z-index', '1'); //Reset the containers index to 1 on leave
 
             // Find the image within the current section
@@ -121,6 +134,8 @@ $(document).ready(function () {
             }
         },
         afterLoad: function(anchorLink, index){
+
+            // afterLoadCallback();
             // Check if the current index is 1 (Home section)
             if (index === 1) {
               homeContainer.css('display', 'flex');
@@ -151,8 +166,7 @@ $(document).ready(function () {
               container.css('z-index', '6');
             } else {
               testimonialsContainer.css('display', 'none'); // Fade out the testimonials container
-            } 
-            
+            }           
 
             // Check if the current index is 5 (Contact section)
             if (index === 5) {
@@ -195,8 +209,10 @@ $(document).ready(function () {
                 menuLinks[index - 1].classList.add('active-menu'); // Add the "active-menu" class
                 menuLinks[index - 1].style.color = '#ff8a26'; // Set the desired color          
             }
+
         },
     });
+    
 
 // Refactored code for handling contact fields
   const contactFields = [
@@ -219,6 +235,32 @@ $(document).ready(function () {
         this.placeholder = field.placeholder;
       }
     });
+  });
+
+
+  const progressCircle = document.querySelector(".autoplay-progress svg");
+  const progressContent = document.querySelector(".autoplay-progress span");
+  var swiper = new Swiper(".mySwiper", {
+    spaceBetween: 30,
+    centeredSlides: true,
+    autoplay: {
+      delay: 10000,
+      disableOnInteraction: false
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
+    },
+    on: {
+      autoplayTimeLeft(s, time, progress) {
+        progressCircle.style.setProperty("--progress", 1 - progress);
+        progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+      }
+    } 
   });
 
 });
