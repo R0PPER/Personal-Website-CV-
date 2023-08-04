@@ -77,7 +77,7 @@ $(document).ready(function () {
         },
         normalScrollElements: '*',
         normalScrollElementTouchThreshold: 5,
-        touchSensitivity: 5,
+        touchSensitivity: 10,
         keyboardScrolling: true,
         sectionSelector: '.section',
         animateAnchor: false,
@@ -170,6 +170,26 @@ $(document).ready(function () {
         
             // Add the 'active' class to the section with the current index
             var activePage = sections.eq(index - 1).addClass('active');
+
+            // IIFE to hide .container in all sections except the active one
+            (() => {
+              sections.not(activePage).find('.container').removeClass('container-transition').css({
+                opacity: 0,
+                visibility: 'hidden'
+              });
+            })();
+
+            // IIFE to show the .container in the active section
+            (() => {
+              activePage.find('.container').addClass('container-transition').css({
+                opacity: 1,
+                visibility: 'visible'
+              });
+            })();
+
+            // Call the functions to hide non-active containers and show the active container
+            hideNonActiveContainers();
+            showActiveContainer();
         
             // Reset the color of all 'a' elements inside '.sf-menu li' to the default color
             menuLinks.forEach(function(link) {

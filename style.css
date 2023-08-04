@@ -74,10 +74,18 @@ html, body {
     /* Add other styles for the container */
   
     /* Transition properties for smooth hiding/showing */
-    transition-property: opacity, visibility; 
-    transition-duration: 3s; 
+    /* transition-property: opacity, visibility; 
+    transition-duration: 1s; 
     transition-timing-function: ease; 
+ */
 }
+
+/* Add a CSS class to control the transition */
+.container-transition {
+    transition-property: opacity, visibility; /* Specify properties to transition */
+    transition-duration: 1s; /* Default transition duration (1 second) */
+    transition-timing-function: ease; /* Use any other timing function if desired */
+  }
 
 .active .container {
     opacity: 1;
