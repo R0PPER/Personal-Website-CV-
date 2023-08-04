@@ -196,7 +196,6 @@ $(document).ready(function () {
                 menuLinks[index - 1].classList.add('active-menu'); // Add the "active-menu" class
                 menuLinks[index - 1].style.color = '#ff8a26'; // Set the desired color          
             }
-
         },
     });
     

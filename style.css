@@ -69,6 +69,19 @@ html, body {
     margin-left: -45%; /* Half of the width */
     margin-top: -35vh; /* Half of the height */
     /* border: #f5f5f5 dotted 6px; */
+    opacity: 0;
+    visibility: hidden;
+    /* Add other styles for the container */
+  
+    /* Transition properties for smooth hiding/showing */
+    transition-property: opacity, visibility; 
+    transition-duration: 3s; 
+    transition-timing-function: ease; 
+}
+
+.active .container {
+    opacity: 1;
+    visibility: visible;
 }
 
 
