@@ -3,7 +3,6 @@ $(document).ready(function () {
     const sections = $('.section');
     const homeContainer = $('.home');
     const aboutContainer = $('.about');
-    const projectsContainer = $('.projects');
     const testimonialsContainer = $('.testimonials');
     const contactContainer = $('.contact');
     const menuLinks = document.querySelectorAll('.sf-menu li a');
@@ -62,7 +61,7 @@ $(document).ready(function () {
         direction: 'vertical',
         verticalCentered: true,
         sectionsColor: [],
-        anchors: ['Home', 'About', 'Projects', 'Testimonials', 'Contact'],
+        anchors: ['Home', 'About', 'Testimonials', 'Contact'],
         scrollingSpeed: 700,
         startingSection: 1, // Set the starting section index to 1 (home page)
         easing: 'swing',
@@ -81,6 +80,7 @@ $(document).ready(function () {
         keyboardScrolling: true,
         sectionSelector: '.section',
         animateAnchor: false,
+        
 
         // Event callbacks
         afterRender: function() {
@@ -105,13 +105,15 @@ $(document).ready(function () {
               isScrolling = false;
             }, 1000); // Set the timer to 1 second (1000 milliseconds)
           });
-        },
-        onLeave: function (index, nextIndex, direction) { 
 
+        },
+
+        
+        onLeave: function (index, nextIndex, direction) {         
             // container.css('z-index', '1'); //Reset the containers index to 1 on leave
 
             // Find the image within the current section
-            var image = sections.eq(index - 1).find('img');
+            var image = sections.eq(index - 1).find('.background-img');
 
             // Check if the image is already zoomed
             if (image.hasClass('zoomed')) {
@@ -121,48 +123,9 @@ $(document).ready(function () {
                 image.removeClass('zoomed'); // Remove the 'zoomed' class from the image
             }
         },
-        afterLoad: function(anchorLink, index){
-            // afterLoadCallback();
-            // Check if the current index is 1 (Home section)
-            // if (index === 1) {
-            //   homeContainer.css('display', 'flex');
-            //   container.css('z-index', '6');
-            // } else {
-            //   homeContainer.css('display', 'none');
-            // }
 
-            //  // Check if the current index is 5 (about section)
-            // if (index === 2) {
-            //   aboutContainer.css('display', 'flex'); // Set the display property of the about element to 'flex'
-            //   container.css('z-index', '6');
-            // } else {
-            //   aboutContainer.css('display', 'none'); // Fade out the about container
-            // } 
-
-            //  // Check if the current index is 5 (projects section)
-            // if (index === 3) {
-            //   projectsContainer.css('display', 'flex'); // Set the display property of the projects element to 'flex'
-            //   container.css('z-index', '6');
-            // } else {
-            //   projectsContainer.css('display', 'none'); // Fade out the projects container
-            // } 
-
-            //  // Check if the current index is 5 (testimonials section)
-            // if (index === 4) {
-            //   testimonialsContainer.css('display', 'flex'); // Set the display property of the testimonials element to 'flex'
-            //   container.css('z-index', '6');
-            // } else {
-            //   testimonialsContainer.css('display', 'none'); // Fade out the testimonials container
-            // }           
-
-            // // Check if the current index is 5 (Contact section)
-            // if (index === 5) {
-            //     contactContainer.css('display', 'flex'); // Set the display property of the contact element to 'flex'
-            //     container.css('z-index', '6');
-            // } else {
-            //   contactContainer.css('display', 'none');
-            // }
-        
+        afterLoad: function(anchorLink, index){ 
+               
             zoomImage(index); // Call the zoomImage function with the current index
         
             // Remove active class from all sections
@@ -186,10 +149,6 @@ $(document).ready(function () {
                 visibility: 'visible'
               });
             })();
-
-            // Call the functions to hide non-active containers and show the active container
-            hideNonActiveContainers();
-            showActiveContainer();
         
             // Reset the color of all 'a' elements inside '.sf-menu li' to the default color
             menuLinks.forEach(function(link) {
@@ -217,10 +176,12 @@ $(document).ready(function () {
                 menuLinks[index - 1].style.color = '#ff8a26'; // Set the desired color          
             }
         },
+        
+        
     });
     
 
-// Refactored code for handling contact fields
+  // Refactored code for handling contact fields
   const contactFields = [
     { input: 'name', placeholder: 'Your Name' },
     { input: 'email', placeholder: 'Your Email' },
@@ -270,4 +231,51 @@ $(document).ready(function () {
   });
 
 });
+//Document Query ends here!!
                     
+
+/**
+  Swiper:
+  https://swiperjs.com/
+**/
+const swiper = new Swiper(".swiperCarousel", {
+  slidesPerView: 3,
+  centeredSlides: true,
+  spaceBetween: 10,
+  keyboard: {
+    enabled: true,
+  },
+  loop: true,
+  pagination: {
+    el: ".swiper-pagination",
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
+
+const slides = document.getElementsByClassName("swiper-slide");
+for (const slide of slides) {
+  slide.addEventListener("click", () => {
+    const { className } = slide;
+    if (className.includes("swiper-slide-next")) {
+      swiper.slideNext();
+    } else if (className.includes("swiper-slide-prev")) {
+      swiper.slidePrev();
+    }
+  });
+}
+
+function resizeTextToFit() {
+  const quoteEls = document.getElementsByClassName('quote');
+  for (const el of quoteEls) {
+    el.style.width = el.offsetWidth;
+    el.style.height = el.offsetHeight;
+  }
+  textFit(quoteEls, { maxFontSize: 14 });
+}
+resizeTextToFit();
+addEventListener("resize", (event) => {
+  resizeTextToFit();
+});
