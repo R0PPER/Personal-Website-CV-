@@ -20,18 +20,18 @@ $(document).ready(function () {
         }
     });
     
-    // Function to zoom the image
-    function zoomImage(index) {
-        // Find the image within the current section
-        var currentSection = sections.eq(index - 1); // Get the current section based on the index
-        image = currentSection.find('.background-img');
-        currentSection.css('transition', 'transform 1.4s'); // Set the transition property for the current section
+    // // Function to zoom the image
+    // function zoomImage(index) {
+    //     // Find the image within the current section
+    //     var currentSection = sections.eq(index - 1); // Get the current section based on the index
+    //     image = currentSection.find('.background-img');
+    //     currentSection.css('transition', 'transform 1.4s'); // Set the transition property for the current section
 
-        // Toggle the 'zoomed' class to scale the image
-        image.css('transition', 'transform 7s'); // Set the transition property for the image
-        image.toggleClass('zoomed'); // Toggle the 'zoomed' class of the image
-        image.css('transform', image.hasClass('zoomed') ? 'scale(1.1)' : 'scale(1)'); // Scale the image based on the 'zoomed' class
-    }
+    //     // Toggle the 'zoomed' class to scale the image
+    //     image.css('transition', 'transform 7s'); // Set the transition property for the image
+    //     image.toggleClass('zoomed'); // Toggle the 'zoomed' class of the image
+    //     image.css('transform', image.hasClass('zoomed') ? 'scale(1.1)' : 'scale(1)'); // Scale the image based on the 'zoomed' class
+    // }
 
     // Event delegation for focus and blur events on contact fields
     contactContainer.on('focus', 'input', function () {
@@ -112,21 +112,21 @@ $(document).ready(function () {
         onLeave: function (index, nextIndex, direction) {         
             // container.css('z-index', '1'); //Reset the containers index to 1 on leave
 
-            // Find the image within the current section
-            var image = sections.eq(index - 1).find('.background-img');
+            // // Find the image within the current section
+            // var image = sections.eq(index - 1).find('.background-img');
 
-            // Check if the image is already zoomed
-            if (image.hasClass('zoomed')) {
-                // If it's already zoomed, animate it back to 100%
-                image.css('transition', 'transform 0.7s'); // Set the transition property for the image
-                image.css('transform', 'scale(1)'); // Reset the scale of the image
-                image.removeClass('zoomed'); // Remove the 'zoomed' class from the image
-            }
+            // // Check if the image is already zoomed
+            // if (image.hasClass('zoomed')) {
+            //     // If it's already zoomed, animate it back to 100%
+            //     image.css('transition', 'transform 0.7s'); // Set the transition property for the image
+            //     image.css('transform', 'scale(1)'); // Reset the scale of the image
+            //     image.removeClass('zoomed'); // Remove the 'zoomed' class from the image
+            // }
         },
 
         afterLoad: function(anchorLink, index){ 
                
-            zoomImage(index); // Call the zoomImage function with the current index
+            // zoomImage(index); // Call the zoomImage function with the current index
         
             // Remove active class from all sections
             sections.removeClass('active');
@@ -151,30 +151,73 @@ $(document).ready(function () {
             })();
         
             // Reset the color of all 'a' elements inside '.sf-menu li' to the default color
-            menuLinks.forEach(function(link) {
-              link.classList.remove('active-menu'); // Remove the "active-menu" class
-              link.style.color = '#f5f5f5'; // Set the color to the default color
+            // menuLinks.forEach(function(link) {
+            //   link.classList.remove('active-menu'); // Remove the "active-menu" class
+            //   link.style.color = '#f5f5f5'; // Set the color to the default color
       
-              link.addEventListener('mouseenter', () => {
-                  if (!link.classList.contains('active-menu')) {
-                      // Change the color on hover only if it's not the active page
-                      link.style.color = '#ff8a26'; // Set the hover color
-                  }
-              });
+              // link.addEventListener('mouseenter', () => {
+              //     if (!link.classList.contains('active-menu')) {
+              //         // Change the color on hover only if it's not the active page
+              //         link.style.color = '#ff8a26'; // Set the hover color
+              //     }
+              // });
       
-              link.addEventListener('mouseleave', () => {
-                  if (!link.classList.contains('active-menu')) {
-                      // Revert back to default color when not hovered and not active
-                      link.style.color = '#f5f5f5'; // Set the default color
-                  }
-              });   
-            });
+              // link.addEventListener('mouseleave', () => {
+              //     if (!link.classList.contains('active-menu')) {
+              //         // Revert back to default color when not hovered and not active
+              //         link.style.color = '#f5f5f5'; // Set the default color
+              //     }
+              // });   
+            // });
+
+            
         
             // Add the "active-menu" class to the menu item corresponding to the active section
-            if (index === activePage.index() + 1) {
-                menuLinks[index - 1].classList.add('active-menu'); // Add the "active-menu" class
-                menuLinks[index - 1].style.color = '#ff8a26'; // Set the desired color          
-            }
+            // if (index === activePage.index() + 1) {
+            //     menuLinks[index - 1].classList.add('active-menu'); // Add the "active-menu" class
+            //     menuLinks[index - 1].style.color = '#ff8a26'; // Set the desired color          
+            // }
+
+            
+             // Function to handle active menu item highlighting
+      function setActiveMenuItem() {
+        const currentPageHash = window.location.hash;
+
+        $('.sf-menu li a').removeClass('active'); // Remove 'active' class from all menu items
+
+        $('.sf-menu li a').each(function () {
+          const menuItemHash = $(this).attr('href');
+
+          if (menuItemHash === currentPageHash) {
+            $(this).addClass('active'); // Add 'active' class to the current menu item
+            $(this).css('color', '#ff8a26'); // Set the desired color for the active menu item
+          } else {
+            $(this).css('color', '#f5f5f5'); // Set the default color for non-active menu items
+          }
+        });
+      }
+
+      // Call the setActiveMenuItem function initially to highlight the active menu item
+      setActiveMenuItem();
+
+      // Add event listener to handle menu item click (to update active item if necessary)
+      $('.sf-menu li a').click(function () {
+        setActiveMenuItem();
+      });
+
+      // Add custom hover effect
+      $('.sf-menu li a').hover(function () {
+        if (!$(this).hasClass('active')) {
+          // Change the color on hover only if it's not the active page
+          $(this).css('color', '#ff8a26'); // Set the hover color
+        }
+      }, function () {
+        if (!$(this).hasClass('active')) {
+          // Revert back to default color when not hovered and not active
+          $(this).css('color', '#f5f5f5'); // Set the default color
+        }
+      });
+            
         },
         
         
