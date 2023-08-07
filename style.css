@@ -56,7 +56,6 @@ html, body {
 .section {
     width: 100%;
     height: 100%;
-    /* display: grid; */
     overflow: hidden;
     display: flex;
     /* border: #ff8a26 solid 6px; */
@@ -267,7 +266,8 @@ html, body {
     font-weight: 1000;
     font-size: 5rem;
     margin-bottom: 6rem;
-    margin-right: 30%;
+    position: absolute;
+    left :3%;
 }
 
 .home .content-fit .welcoming p {
@@ -409,7 +409,6 @@ html, body {
     margin-top: 2rem;
 }
 
-
 .testimonials {
     width: 80%;
     height: 96%;
@@ -417,7 +416,6 @@ html, body {
     position: absolute;
     bottom: 0;
 }
-
 
 .testimonials .cd__main{
     display: block !important;
@@ -804,7 +802,7 @@ button {
 button:hover{
     color:var(--main-white-color);
     background-color:transparent;
-    box-shadow:inset 0 0 0 1px #c94d4d
+    box-shadow:inset 0 0 0 1px var(--golden-color);
 }
 
 .social-container {
@@ -837,11 +835,7 @@ button:hover{
 
 
 
-
-
-/* First Section background starts here */
-
-
+/* First Section's background starts here */
 .context {
     width: 100%;
     position: absolute;
@@ -858,7 +852,7 @@ button:hover{
 
 .area{
     background: rgba(0, 0, 0, 0.7);  
-    background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);  
+    background: -webkit-linear-gradient(to left, #000000, #fcfcfc);  
     width: 100%;
     height:100vh;  
 }
@@ -1152,4 +1146,219 @@ to {background-position: -10px 0px;background-size:2950px;}
 
 /* forth section background ends here */
 
+/*header responsive starts here */
+@media (max-width: 760px) {
+    .header .sf-menu {
+        display: none;
+}
+
+    .header .header-contact {
+        position: absolute;
+        right: 12%;
+    }
+
+    .header .vlt-menu-burger{
+        display: flex;
+        position: absolute;
+        right:5%
+    }
+
+}
+/*header responsive ends here */
+
+
+/* home responsive ends here */
+@media (max-width: 665px) {
+    .home h1 {
+        font-size: 4rem !important;
+        top: 13%;
+        text-align: center;
+    }
+
+    .home p {
+        text-align: center;
+    }
+}
+/* home responsive ends here */
+
+
+/* about responsive starts here */
+@media (max-width: 940px) {
+
+    .about .swiper {
+        position: absolute;
+        right: 0;
+    }
+
+    .about .swiper-slide p{
+        font-size: 1rem;
+    }
+
+    .about .about-photo {
+        transform: scale(0.8);
+        position: absolute;
+        left:20%
+    }
+
+}
+
+
+@media (max-width: 804px) {
+
+    .about .swiper-slide p{
+        font-size: 0.7rem;
+    }
+
+}
+
+@media (max-width: 786px) {
+
+    .about .about-photo {
+        transform: scale(0.7);
+        position: absolute;
+        left:25%
+    }
+       
+}
+
+@media (max-width: 786px) {
+
+    .about .about-photo {
+        position: absolute;
+        left:30%
+    }
+       
+}
+/*about responsive ends here */
+
+
+/* testimonials ends here */
+
+@media (max-height: 756px) {
+
+    .testimonials .textFitted{
+        font-size: 0.8rem !important;        
+    }       
+}
+
+@media (max-width: 1810px) {
+
+    .testimonials .swiper-slide p{
+        font-size: 3px !important;
+      
+    }         
+}
+
+@media (max-width: 1566px) {
+
+    .testimonials .textFitted{
+        font-size: 0.75rem !important;
+      
+    }         
+}
+
+@media (max-width: 1440px)  {
+
+    .testimonials .header .name {
+        font-size: 0.9rem;
+    }
+
+    .testimonials .header .title {
+        font-size: 0.6rem !important;
+    }
+
+    .testimonials .textFitted{
+        font-size: 0.7rem !important;
+        
+    }
+}
+
+@media (max-width: 1238px) {
+    .testimonials .textFitted{
+        font-size: 0.65rem !important;
+        
+    }
+}
+
+@media (max-width: 1144px)  {
+
+    .testimonials .textFitted{
+        font-size: 0.6rem !important;
+        
+    }
+}
+
+@media (max-width: 1004px)  {
+
+    .testimonials .textFitted{
+        font-size: 0.55rem !important;
+        
+    }
+}
+
+@media (max-width: 898px)  {
+
+    .testimonials .textFitted{
+        font-size: 0.5rem !important;
+        
+    }
+}
+
+@media (max-width: 788px)  {
+
+    .testimonials .textFitted{
+        font-size: 0.46rem !important;
+        
+    }
+}
+
+@media (max-width: 744px)  {
+
+    .testimonials .textFitted{
+        font-size: 0.44rem !important;
+        
+    }
+}
+
+@media (max-width: 626px)  {
+
+    .testimonials .textFitted{
+        font-size: 0.40rem !important;
+        
+    }
+}
+
+@media (max-width: 592px)  {
+
+    .testimonials .textFitted{
+        font-size: 0.39rem !important;
+        
+    }
+}
+
+@media (max-width: 584px)  {
+
+    .testimonials .textFitted{
+        font-size: 0.375rem !important;
+        
+    }
+}
+
+
+
+/* testimonials ends here */
+
+
+/* contact responsive starts here */
+
+@media (max-width: 926px)  {
+
+    .contact .network, .contact .message{
+        transform: scale(0.8);
+        
+    }
+}
+
+
+/* contact responsive ends here */
 
