@@ -61,7 +61,6 @@ $(document).ready(function () {
         keyboardScrolling: true,
         sectionSelector: '.section',
         animateAnchor: false,
-        
 
         // Event callbacks
         afterRender: function() {
@@ -86,7 +85,6 @@ $(document).ready(function () {
               isScrolling = false;
             }, 1000); // Set the timer to 1 second (1000 milliseconds)
           });
-
         },
 
         
@@ -115,7 +113,7 @@ $(document).ready(function () {
             (() => {
               activePage.find('.container').addClass('container-transition').css({
                 opacity: 1,
-                visibility: 'visible'
+                visibility: 'visible',
               });
             })();
         
